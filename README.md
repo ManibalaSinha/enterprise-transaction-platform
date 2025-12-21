@@ -78,37 +78,6 @@ AWS, Docker & Docker Compose
 Environment variables for secrets
 Hot reload for both frontend and backend
 
-Project Structure
-enterprise-transaction-platform/
-backend/
-├─ app/
-│  ├─ __init__.py
-│  ├─ main.py
-│  ├─ models/
-│  │  ├─ __init__.py
-│  │  └─ user.py
-│  ├─ db/
-│  │  ├─ __init__.py
-│  │  ├─ session.py
-│  │  └─ init_db.py
-│  └─ api/
-│     ├─ __init__.py
-│     └─ users.py
-├─ venv/
-└─ test_db.py
-
-├── migrations/
-├── tests/
-│  
-│   
-├── frontend/          
-├── infra/
-│   └── aws/
-├── docker/
-├── .github/workflows/
-├── README.md
-└── docker-compose.yml
-
 API Endpoints
 Auth
 
