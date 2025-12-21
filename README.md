@@ -1,6 +1,31 @@
-8﻿# enterprise-transaction-platform
+# enterprise-transaction-platform
 A full-stack enterprise-transaction-platform
    designed for teams to track, organize, and manage customer efficiently. Built with a React frontend, FastAPI backend, and PostgreSQL database, this application supports complete CRUD operations, authentication, and role-based access.
+
+Problem statement (transaction + risk)
+Architecture diagram
+Tech stack
+Failure handling
+Security considerations
+
+Step 1️⃣ Domain Model
+Entities:
+Transaction
+Account
+AuditLog
+RiskFlag
+
+Step 2️⃣ API Design
+Endpoints like:
+POST /transactions
+GET /transactions/{id}
+POST /transactions/{id}/retry
+
+Step 3️⃣ Database Transactions
+ACID
+Rollback
+Isolation levels
+Idempotency keys
 
 User Authentication
 JWT-based login & signup
