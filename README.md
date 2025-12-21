@@ -8,20 +8,20 @@ Tech stack
 Failure handling
 Security considerations
 
-Step 1️⃣ Domain Model
+Step 1️ Domain Model
 Entities:
 Transaction
 Account
 AuditLog
 RiskFlag
 
-Step 2️⃣ API Design
+Step 2️ API Design
 Endpoints like:
 POST /transactions
 GET /transactions/{id}
 POST /transactions/{id}/retry
 
-Step 3️⃣ Database Transactions
+Step 3️ Database Transactions
 ACID
 Rollback
 Isolation levels
@@ -91,14 +91,12 @@ backend/
 │  │  ├─ __init__.py
 │  │  ├─ session.py
 │  │  └─ init_db.py
-│  |└─ api/
-│  |   ├─ __init__.py
-│  ├── core/
-│  │   
-│  ├── services/
-│  ├── workers  
+│  └─ api/
+│     ├─ __init__.py
+│     └─ users.py
 ├─ venv/
 └─ test_db.py
+
 ├── migrations/
 ├── tests/
 │  
