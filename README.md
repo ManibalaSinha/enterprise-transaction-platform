@@ -1,133 +1,180 @@
-# enterprise-transaction-platform
-A full-stack enterprise-transaction-platform
-   designed for teams to track, organize, and manage customer efficiently. Built with a React frontend, FastAPI backend, and PostgreSQL database, this application supports complete CRUD operations, authentication, and role-based access.
+#  Enterprise Transaction Platform
 
-Problem statement (transaction + risk)
-Architecture diagram
-Tech stack
-Failure handling
-Security considerations
+A **full-stack, enterprise-grade transaction management system** designed to handle secure financial transactions, account management, and audit-ready workflows.
+Built with **FastAPI, PostgreSQL, React, and Docker**, the platform follows clean architecture, REST best practices, and strong transactional integrity.
 
-Step 1️ Domain Model
-Entities:
-Transaction
-Account
-AuditLog
-RiskFlag
+---
 
-Step 2️ API Design
-Endpoints like:
-POST /transactions
-GET /transactions/{id}
-POST /transactions/{id}/retry
+##  Features
 
-Step 3️ Database Transactions
-ACID
-Rollback
-Isolation levels
-Idempotency keys
+*  Secure authentication using **JWT**
+*  Account & transaction management with **ACID compliance**
+*  High-performance REST APIs using **FastAPI**
+*  Structured domain models for accounts, transactions, and logs
+*  Modular backend architecture (scalable & testable)
+*  Dockerized setup for consistent local & cloud deployment
+*  Ready for enterprise extensions (audit logs, fraud detection, limits)
 
-User Authentication
-JWT-based login & signup
-Password hashing using Passlib
-Secure protected routes
+---
 
- Management
-Create new user, transactions, account 
-Update user information,  transactions 
-Assign transactions to users,  account 
-Track user source, status, and priority
-Delete or archive user
+##  Tech Stack
 
-REST API (FastAPI)
-Modular router-based architecture
-Pydantic models (FastAPI v2 compatible)
-Input validation & schema generation
-Auto-generated docs via Swagger & ReDoc
+###  Frontend
 
-Frontend (React)
-User-friendly dashboard
-Add/Edit user forms
-Table view with sorting & filtering
-Axios API integration
-Toast notifications
+* **React** – Component-based UI
+* **TypeScript** – Strong typing for maintainability
+* **Axios** – API communication
+* **React Router** – Client-side routing
+* **Modern UI styling** (Tailwind / Material UI)
 
-Database (PostgreSQL + SQLAlchemy)
-Relational schema with foreign keys
-account, Users, Auth tokens
-Optimized queries
+###  Backend
 
-Tech Stack
-Frontend
+* **Python (FastAPI)** – High-performance async REST APIs
+* **SQLAlchemy ORM** – Database modeling & queries
+* **Pydantic** – Request/response validation
+* **Uvicorn** – ASGI server
 
-React, TypeScript
-Axios, React Router
-TailwindCSS / Material UI (optional)
-Backend
+###  Database
 
-Python FastAPI
-SQLAlchemy ORM
-PostgreSQL
-Uvicorn
-Passlib
-python-jose (JWT)
+* **PostgreSQL**
 
-DevOps
+  * Transaction-safe (ACID)
+  * Referential integrity
+  * Optimized for financial data
 
-AWS, Docker & Docker Compose
-Environment variables for secrets
-Hot reload for both frontend and backend
+###  Security
 
-API Endpoints
-Auth
+* **JWT Authentication**
+* **Password hashing** with Passlib
+* **Role-based access control (RBAC)** ready
 
-Method	Endpoint	Description
-POST	/auth/login	Login user
-POST	/auth/signup	Register new user
-Leads
+###  DevOps & Tooling
 
-Method	Endpoint	Description
-GET	/users/	Get all users
-POST	/users/	Create a user
-PUT	/users/{id}	Update a user
-DELETE	/users/{id}	Delete a user
+* **Docker & Docker Compose**
+* **Environment-based configuration**
+* **Hot reload** for development
 
-How to Run Locally
-Backend
-cd backend
-pip install -r requirements.txt
-uvicorn app.main:app --reload
-Runs at: http://127.0.0.1:8000
-API Docs: http://127.0.0.1:8000/docs
+---
 
-Frontend
-cd frontend
-npm install
-npm start
-Runs at: http://localhost:3000
-Docker Setup
+##  Project Structure
+
+```
+enterprise-transaction-platform/
+│
+├── backend/
+│   ├── app/
+│   │   ├── api/            # Route handlers
+│   │   ├── core/           # Config, security, JWT
+│   │   ├── models/         # SQLAlchemy models
+│   │   ├── schemas/        # Pydantic schemas
+│   │   ├── services/       # Business logic
+│   │   ├── db/             # DB session & engine
+│   │   └── main.py         # FastAPI entry point
+│   ├── Dockerfile
+│   └── requirements.txt
+│
+├── frontend/
+│   ├── src/
+│   ├── public/
+│   └── Dockerfile
+│
+├── docker-compose.yml
+└── README.md
+```
+
+---
+
+##  Setup & Installation
+
+### 1️ Clone the Repository
+
+```bash
+git clone https://github.com/ManibalaSinha/enterprise-transaction-platform.git
+cd enterprise-transaction-platform
+```
+
+### 2️ Environment Variables
+
+Create a `.env` file:
+
+```env
+DATABASE_URL=postgresql://postgres:postgres@db:5432/transactions
+SECRET_KEY=your_secret_key
+ALGORITHM=HS256
+ACCESS_TOKEN_EXPIRE_MINUTES=60
+```
+
+### 3️ Run with Docker
+
+```bash
 docker-compose up --build
-This starts:
+```
 
-React app
-FastAPI backend
-PostgreSQL database
+* Backend → `http://localhost:8000`
+* API Docs → `http://localhost:8000/docs`
+* Frontend → `http://localhost:3000`
 
-Why I Built This Project
-Production-ready full-stack system
-Real authentication
-Secure API development
-SQL database modeling
-React frontend architecture
-Full CRUD implementation
-API integration & state management
-Clean code & scalability
+---
 
-Ideal for:
+##  API Documentation
 
-SaaS CRM tools
-Small business lead tracking
-Sales team workflow automation
+FastAPI automatically generates interactive API documentation:
 
-Author
-Manibala Sinha — Full Stack Developer (React, Node.js, Python) Vaughan, ON, Canada GitHub: https://github.com/ManibalaSinha
+* **Swagger UI** → `/docs`
+* **ReDoc** → `/redoc`
+
+Includes:
+
+* Auth endpoints
+* Account CRUD
+* Transaction creation & retrieval
+* Validation & error handling
+
+---
+
+##  Testing (Planned / Extendable)
+
+* Unit testing with **pytest**
+* API tests with **HTTPX**
+* Database isolation using test containers
+
+---
+
+##  Architecture Highlights
+
+* **Separation of concerns** (API, services, models)
+* **Stateless APIs** (JWT-based auth)
+* **Transaction-safe DB operations**
+* **Scalable service layer**
+* **Cloud-ready** (GCP / AWS / Azure compatible)
+
+---
+
+##  Future Enhancements
+
+*  Audit logs & transaction history
+*  Fraud detection rules
+*  Rate limiting & API throttling
+*  Admin dashboard
+*  Event-driven processing (Kafka / PubSub)
+*  CI/CD pipelines
+
+---
+
+##  Author
+
+**Manibala Sinha**
+Senior Full Stack / Python Engineer
+ Canada
+ GitHub: [https://github.com/ManibalaSinha](https://github.com/ManibalaSinha)
+
+---
+
+##  Why This Project Matters
+* **Enterprise backend design**
+* **Financial transaction handling**
+* **Strong Python & FastAPI expertise**
+* **Production-ready architecture**
+* **Docker & database mastery**
+
+
