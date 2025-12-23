@@ -1,7 +1,12 @@
-from fastapi import FastAPI
-from app.api import users  # your router
+from fastapi import Depends, FastAPI
+from app.api.users import router
 from app.db.session import SessionLocal
 from app.models.user import User
+from app.db.session import engine
+from app.models import Base
+from sqlalchemy.orm import Session
+from app.db.deps import get_db
+from app.api import users
 
 app = FastAPI(
     title="Enterprise Transaction Processing Platform",
@@ -10,29 +15,11 @@ app = FastAPI(
 
 app.include_router(users.router)
 
-# Dependency to get DB session
-def get_db():
-    db = SessionLocal()
-    try:
-        yield db
-    finally:
-        db.close()
-
 @app.on_event("startup")
-def startup_event():
-    # Add a default user only if not exists
-    db = SessionLocal()
-    existing = db.query(User).filter_by(email="m@example.com").first()
-    if not existing:
-        new_user = User(name="M", email="m@example.com")
-        db.add(new_user)
-        db.commit()
-    db.close()
-
-@app.get("/")
-def root():
-    return {"message": "API is running"}
-
+def startup():
+    Base.metadata.create_all(bind=engine)
+    print(" Database tables ensured")
+    
 @app.get("/health")
-async def health_check():
+def health_check():
     return {"status": "ok"}

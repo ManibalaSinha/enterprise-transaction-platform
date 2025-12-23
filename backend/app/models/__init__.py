@@ -1,5 +1,5 @@
 from app.db.base import Base
-from .user import User
 from .account import Account
+from .transaction import Transaction
 
-__all__ = ["User", "Account"]
+__all__ = ["Base", "Account", "Transaction"]

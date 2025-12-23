@@ -1,7 +1,6 @@
-from sqlalchemy import inspect
+from app.models import Base
 from app.db.session import engine
 
-if __name__ == "__main__":
-    inspector = inspect(engine)
-    tables = inspector.get_table_names()
-    print(" Tables in DB:", tables)
+# This will create all tables defined by Base subclasses if they don't exist
+Base.metadata.create_all(bind=engine)
+print("✅ Tables created successfully")

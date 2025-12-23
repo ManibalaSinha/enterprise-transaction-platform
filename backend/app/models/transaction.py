@@ -1,10 +1,13 @@
-from sqlalchemy import Column, Integer, String
+from sqlalchemy import Column, Integer, String, ForeignKey
+from sqlalchemy.orm import relationship
 from app.db.base import Base
 
 class Transaction(Base):
     __tablename__ = "transactions"
 
-    txn_id = Column(Integer, primary_key=True, index=True)
-    acc_id = Column(Integer, foreign_key=True, index=True)
-    amount = Column(Integer,nullable=False)
+    id = Column(Integer, primary_key=True, index=True)
+    account_id = Column(Integer, ForeignKey("accounts.id"), nullable=False)
+    type = Column(String, nullable=False)
+    amount = Column(Integer, nullable=False)
 
+    account = relationship("Account", back_populates="transactions")
