@@ -108,7 +108,7 @@ cd enterprise-transaction-platform
 
 ```env
 DATABASE_URL=postgresql://postgres:postgres@db:5432/transactions
-SECRET_KEY=your_secret_key
+SECRET_KEY=secret_key
 ALGORITHM=HS256
 ACCESS_TOKEN_EXPIRE_MINUTES=60
 ```
