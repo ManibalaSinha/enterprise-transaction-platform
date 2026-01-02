@@ -7,13 +7,8 @@ env_path = Path(__file__).resolve().parent.parent.parent / ".env"
 load_dotenv(env_path)
 
 class Settings:
-    DATABASE_URL: str = (
-        f"postgresql+psycopg://"
-        f"{os.getenv('POSTGRES_USER')}:"
-        f"{os.getenv('POSTGRES_PASSWORD')}@"
-        f"{os.getenv('POSTGRES_HOST')}:"
-        f"{os.getenv('POSTGRES_PORT')}/"
-        f"{os.getenv('POSTGRES_DB')}"
-    )
+    DATABASE_URL: str = os.getenv("DATABASE_URL")
+    SECRET_KEY: str = os.getenv("SECRET_KEY")
+    DEBUG: bool = os.getenv("DEBUG", "False").lower() == "true"
 
 settings = Settings()
