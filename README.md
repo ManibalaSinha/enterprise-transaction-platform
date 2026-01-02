@@ -9,10 +9,10 @@ Built with **FastAPI, PostgreSQL, React, and Docker**, the system follows **clea
 </p>
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/ManibalaSinha/Management/main/backend/app/assets/cloudshell.png" width="600" />
-  <img src="https://raw.githubusercontent.com/ManibalaSinha/Management/main/backend/app/assets/userDetails.png" width="600" />
-  <img src="https://raw.githubusercontent.com/ManibalaSinha/Management/main/backend/app/assets/RetrievedData.png" width="600" />
-  <img src="https://raw.githubusercontent.com/ManibalaSinha/Management/main/backend/app/assets/RetrievingUrl.png" width="600" />
+  <img src="https://raw.githubusercontent.com/ManibalaSinha/ENTERPRISE-TRANSACTION-PLATFORM/main/backend/app/assets/cloudshell.png" width="600" />
+  <img src="https://raw.githubusercontent.com/ManibalaSinha/ENTERPRISE-TRANSACTION-PLATFORM/main/backend/app/assets/userDetails.png" width="600" />
+  <img src="https://raw.githubusercontent.com/ManibalaSinha/ENTERPRISE-TRANSACTION-PLATFORM/main/backend/app/assets/RetrievedData.png" width="600" />
+  <img src="https://raw.githubusercontent.com/ManibalaSinha/ENTERPRISE-TRANSACTION-PLATFORM/main/backend/app/assets/RetrievingUrl.png" width="600" />
 </p>
 
 ---
