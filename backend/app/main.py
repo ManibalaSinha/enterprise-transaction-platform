@@ -9,6 +9,7 @@ from app.db.deps import get_db
 from app.api import users
 from app.routers import payments,reconciliation
 import logging
+from app.api.v1.users import api_router
 
 app = FastAPI(
     title="PayFlow API",
@@ -18,6 +19,7 @@ app = FastAPI(
 app.include_router(payments.router, prefix="/payments", tags=["Payments"])
 app.include_router(reconciliation.router, prefix="/reconcile", tags=["Reconciliation"])
 app.include_router(users.router, prefix="/users", tags=["users"])
+app.include_router(api_router, prefix="/api/v1")
 
 logger = logging.getLogger(__name__)
 @app.on_event("startup")
