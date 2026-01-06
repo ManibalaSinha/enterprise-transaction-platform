@@ -8,6 +8,10 @@ __pycache__/
 *.pyo
 *.pyd
 .venv/
+# Python virtual environments
+backend/.venv2/
+backend/.venv/
+
 
 # OS
 .DS_Store
