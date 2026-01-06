@@ -1,21 +1,32 @@
-# Enterprise Transaction Platform
+# PayFlow – Payment API with Retry & Reconciliation
 
-A **production-grade, cloud-ready transaction management platform** designed for secure financial operations, account lifecycle management, and audit-ready workflows.
+**PayFlow** is a backend payment system API built with **Python (FastAPI)** and **PostgreSQL**, designed for:
 
-Built with **FastAPI, PostgreSQL, React, and Docker**, the system follows **clean architecture principles**, REST best practices, and **ACID-compliant transactional integrity**—similar to real-world fintech and enterprise backend systems.
+- Idempotent payment processing
+- Retry logic for transient errors
+- Batch reconciliation of payments
+- Cloud deployment-ready (AWS/GCP)
 
 <p align="center">
   <a href="https://youtu.be/VEWHFmKNO2c?si=j_6FUYbjBTVRr4xe">▶ Watch Demo</a>
 </p>
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/ManibalaSinha/Management/main/backend/app/assets/cloudshell.png" width="600" />
-  <img src="https://raw.githubusercontent.com/ManibalaSinha/Management/main/backend/app/assets/userDetails.png" width="600" />
-  <img src="https://raw.githubusercontent.com/ManibalaSinha/Management/main/backend/app/assets/RetrievedData.png" width="600" />
-  <img src="https://raw.githubusercontent.com/ManibalaSinha/Management/main/backend/app/assets/RetrievingUrl.png" width="600" />
+  <img src="https://raw.githubusercontent.com/ManibalaSinha/ENTERPRISE-TRANSACTION-PLATFORM/main/backend/app/assets/cloudshell.png" width="600" />
+  <img src="https://raw.githubusercontent.com/ManibalaSinha/ENTERPRISE-TRANSACTION-PLATFORM/main/backend/app/assets/PaymentFlow.png" width="600" />
+  <img src="https://raw.githubusercontent.com/ManibalaSinha/ENTERPRISE-TRANSACTION-PLATFORM/main/backend/app/assets/InitiatePayment.png" width="600" />
+  <img src="https://raw.githubusercontent.com/ManibalaSinha/ENTERPRISE-TRANSACTION-PLATFORM/main/backend/app/assets/userDetails.png" width="600" />
+  <img src="https://raw.githubusercontent.com/ManibalaSinha/ENTERPRISE-TRANSACTION-PLATFORM/main/backend/app/assets/RetrievedData.png" width="600" />
+  <img src="https://raw.githubusercontent.com/ManibalaSinha/ENTERPRISE-TRANSACTION-PLATFORM/main/backend/app/assets/RetrievingUrl.png" width="600" />
 </p>
 
 ---
+## Features
+- `/initiate-payment` – Idempotent payment initiation
+- `/payment-status/{payment_id}` – Track payment status
+- `/reconcile` – Batch reconciliation for failed/incomplete payments
+- Async retry logic with exponential backoff
+- Observability: structured logs & metrics
 
 ## Key Capabilities
 
@@ -29,26 +40,11 @@ Built with **FastAPI, PostgreSQL, React, and Docker**, the system follows **clea
 
 ---
 
-## Technology Stack
-
-### Frontend
-
-* **React** – Component-based UI
-* **TypeScript** – Type safety and maintainability
-* **Axios** – API communication
-* **React Router** – Client-side routing
-* **Modern UI styling** (Tailwind / Material UI)
-
-### Backend
-
-* **Python (FastAPI)** – High-performance async APIs
-* **SQLAlchemy ORM** – Database abstraction and transactions
-* **Pydantic** – Request/response validation
-* **Uvicorn** – ASGI server
-
-### Database
-
-* **PostgreSQL**
+## Tech Stack
+- Python, FastAPI
+- PostgreSQL
+- AWS (Lambda, SQS, RDS) or GCP (Cloud Run, Pub/Sub, Cloud SQL)
+- Docker, CI/CD
 
   * ACID-compliant transactions
   * Referential integrity
